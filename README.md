@@ -5,4 +5,4 @@ render multiple sprites
 
 make mirror walls
 
-find a better way to stop the player from getting to close to walls
+find a better way to stop the player from getting too close to walls
