@@ -177,6 +177,4 @@ public class Assets {
         }
         return image;
     }
-
-    // mabye use render method inside the Ray object
 }
