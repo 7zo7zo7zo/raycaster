@@ -111,7 +111,6 @@ public class Assets {
 
             ////g2.drawImage(line, (lineW * i) + getWidth() / 2, lineO, lineW, lineH, null);
             g2.drawImage(line2, (lineW * i) + getWidth() / 2, lineO, lineW, lineH, null);
-            ////ray.render(g2);
             f++;
         }
 
@@ -120,6 +119,7 @@ public class Assets {
         g2.setColor(Color.BLUE);
         g2.drawLine((int) (player.x / cellSize * miniMapScale), (int) (player.y / cellSize * miniMapScale), (int) (Math.cos(player.angle) * 10 + player.x / cellSize * miniMapScale), (int) (Math.sin(player.angle) * 10 + player.y / cellSize * miniMapScale));
         g2.fillRect((int) (player.x / cellSize * miniMapScale - 2), (int) (player.y / cellSize * miniMapScale - 2), 4, 4);
+        ////ray.render(g2);
     }
 
     public Input getInput() {
