@@ -11,6 +11,8 @@ make Toolkit.getDefaultToolkit().sync(); only execute when the os is linux/not w
 
 add mouse look
 
+fix player movement code so you can't get too close to walls (mabye add vertical limit to image walls)
+
 
 first walls were rendered with rectangles
 
