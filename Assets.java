@@ -109,8 +109,10 @@ public class Assets {
             }
             */
 
-            ////g2.drawImage(line, (lineW * i) + getWidth() / 2, lineO, lineW, lineH, null);
+            //g2.drawImage(line, (lineW * i) + getWidth() / 2, lineO, lineW, lineH, null);
             g2.drawImage(line2, (lineW * i) + getWidth() / 2, lineO, lineW, lineH, null);
+            //ray.render(g2);
+            // maybe use render method inside the Ray object
             f++;
         }
 
@@ -118,8 +120,22 @@ public class Assets {
         g2.drawImage(mapImage, 0, 0, mapImage.getWidth() * miniMapScale, mapImage.getHeight() * miniMapScale, null);
         g2.setColor(Color.BLUE);
         g2.drawLine((int) (player.x / cellSize * miniMapScale), (int) (player.y / cellSize * miniMapScale), (int) (Math.cos(player.angle) * 10 + player.x / cellSize * miniMapScale), (int) (Math.sin(player.angle) * 10 + player.y / cellSize * miniMapScale));
+
+        /*
+        f = 0;
+        for (int i = -rays / 2; i < rays / 2; i++) {
+            toAdd = Math.atan(2 * (getWidth() / 2 - lineW * f) * Math.tan(-fov/2) / getWidth());
+            angle = player.angle + toAdd;
+
+            while (angle < 0) angle += 2 * Math.PI;
+            while (angle > 2 * Math.PI) angle -= 2 * Math.PI;
+
+            Ray ray = new Ray(this, player.x, player.y, angle, 0, (lineW * i) + getWidth());
+            g2.drawLine((int) (player.x / cellSize * miniMapScale), (int) (player.y / cellSize * miniMapScale), (int) ((Math.cos(angle) * ray.distance + player.x) / cellSize * miniMapScale), (int) ((Math.sin(angle) * ray.distance + player.y) / cellSize * miniMapScale));
+            f++;
+        }
+        */
         g2.fillRect((int) (player.x / cellSize * miniMapScale - 2), (int) (player.y / cellSize * miniMapScale - 2), 4, 4);
-        ////ray.render(g2);
     }
 
     public Input getInput() {

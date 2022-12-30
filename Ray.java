@@ -9,6 +9,8 @@ public class Ray extends Entity {
 
     int dof;
 
+    //find way to set execute constructor in another constructorz
+    //add dof to raycast
     public Ray(Assets assets, double x, double y, double angle, int dof, double screenX) {
         super(assets, x, y);
         this.angle = angle;
