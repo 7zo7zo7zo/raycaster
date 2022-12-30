@@ -16,7 +16,7 @@ first walls were rendered with rectangles
 
 then sliced up bufferedimages
 
-to render one sprite put wall slices or whatever objects are being used in an arraylist and render then in order of decending distance to the player
+to render one sprite put wall slices or whatever objects are being used in an arraylist and render then in order of decending distance to the player (either seperate bufferedimage arraylist or include corresponding bufferedimage in each ray object, used to use Double[] arraylist)
 
 to render multiple sprites put sprites in an arraylist and render both arraylists in decending distance to the player
 
