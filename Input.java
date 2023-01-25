@@ -5,7 +5,7 @@ public class Input implements KeyListener {
 
 	private boolean[] keys;
 
-	public boolean up, down, left, right;
+	public boolean forward, backward, left, right, strafeL, strafeR;
 
 	public Input() {
 		keys = new boolean[526];
@@ -27,9 +27,11 @@ public class Input implements KeyListener {
 	}
 
 	public void tick() {
-		up = keys[KeyEvent.VK_UP];
-		down = keys[KeyEvent.VK_DOWN];
+		forward = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
+		backward = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];;
 		left = keys[KeyEvent.VK_LEFT];
 		right = keys[KeyEvent.VK_RIGHT];
+		strafeL = keys[KeyEvent.VK_A];
+		strafeR = keys[KeyEvent.VK_D];
 	}
 }
