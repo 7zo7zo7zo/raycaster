@@ -6,7 +6,7 @@ public class Player extends Entity {
     private double nextX, nextY;
 
     private boolean moving;
-    private int invertX, invertY;
+    private byte invertX, invertY;
 
     public Player(Assets assets, double x, double y) {
         super(assets, x, y);
