@@ -1,17 +1,17 @@
 public class Player extends Entity {
 
-    private int speed;
+    private double speed;
 
-    private double threshold, relMoveAngle, moveAngle;
+    private double threshold, relMoveAngle, moveAngle, vertMoveAngle, sideMoveAngle;
     private double nextX, nextY;
 
     private boolean moving;
-    int invertX, invertY;
+    private int invertX, invertY;
 
     public Player(Assets assets, double x, double y) {
         super(assets, x, y);
         angle = 0;
-        speed = 1;
+        speed = 0.2;
         moving = false;
         threshold = 0.5;
     }
@@ -26,20 +26,25 @@ public class Player extends Entity {
         while (angle < 0) angle += 2 * Math.PI;
         while (angle > 2 * Math.PI) angle -= 2 * Math.PI;
 
-        if(assets.getInput().up) {
-            relMoveAngle = 0;
+        if(assets.getInput().forward) {
+            vertMoveAngle = 1;
             moving = true;
-            //nextX = x + Math.cos(angle) * speed;
-            //nextY = y + Math.sin(angle) * speed;
         }
-        if(assets.getInput().down) {
-            relMoveAngle = Math.PI;
+        if(assets.getInput().backward) {
+            vertMoveAngle = -1;
             moving = true;
-            //nextX = x - Math.cos(angle) * speed;
-            //nextY = y - Math.sin(angle) * speed;
+        }
+        if(assets.getInput().strafeL) {
+            sideMoveAngle = -1;
+            moving = true;
+        }
+        if(assets.getInput().strafeR) {
+            sideMoveAngle = 1;
+            moving = true;
         }
 
         if(moving) {
+            relMoveAngle = Math.atan2(sideMoveAngle, vertMoveAngle);
             nextX = Math.cos(moveAngle) * speed + x;
             nextY = Math.sin(moveAngle) * speed + y;
 
@@ -65,11 +70,14 @@ public class Player extends Entity {
             if (getMap()[(int) (nextY + threshold * invertY) / getCellSize()][(int) x / getCellSize()] == 0) {
                 y = nextY;
             }
+
+            moving = false;
+            vertMoveAngle = 0;
+            sideMoveAngle = 0;
         }
-        moving = false;
     }
     public int getValue(double x, double y) {
-        return getMap()[(int) y / getCellSize()][(int) x / getCellSize()];
+        return getMap()[(int) y / getCellSize()][(int) x /getCellSize()];
     }
 
     public boolean check(double x, double y) {
