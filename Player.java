@@ -77,7 +77,7 @@ public class Player extends Entity {
         }
     }
     public int getValue(double x, double y) {
-        return getMap()[(int) y / getCellSize()][(int) x /getCellSize()];
+        return getMap()[(int) y / getCellSize()][(int) x / getCellSize()];
     }
 
     public boolean check(double x, double y) {
