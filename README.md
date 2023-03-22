@@ -1,20 +1,36 @@
 # TODO
-render one sprite
+~~render one sprite~~
 
 render multiple sprites
 
 make mirror walls
 
-find a better way to stop the player from getting too close to walls
+~~find a better way to stop the player from getting too close to walls (good enough solution)~~
 
-make Toolkit.getDefaultToolkit().sync(); only execute when the os is linux/not windows
+~~make Toolkit.getDefaultToolkit().sync(); only execute when the os is linux/not windows~~
 
-add mouse look
+~~add mouse look~~
 
-fix player movement code so you can't get too close to walls (mabye add vertical limit to image walls)
+~~fix player movement code so you can't get too close to walls (maybe add vertical limit to image walls) ((idk why I added this twice))~~
 
+directional/multidirectional sprites
 
+change how far above the ground sprites are (probably have to do something similar to floors heres, triangles, projection, and trig)
+
+quake/source movement (attempt)
+
+multiple levels, easy way to swap and select levels
+
+distorted vertical look
+
+ceellings and floors? (attempt)
+
+ui? (i don't rly wanna)
+
+# Roadmap
 first walls were rendered with rectangles
+
+(here came portals)
 
 then sliced up bufferedimages
 
@@ -22,6 +38,6 @@ to render one sprite put wall slices or whatever objects are being used in an ar
 
 to render multiple sprites put sprites in an arraylist and render both arraylists in decending distance to the player
 
-to make directional sprites, probably compare the angle the sprite is facing and the angle of the player
+to make directional sprites, probably compare the angle the sprite is facing and the angle of the player (need to do)
 
-idk how to do cellings, floors, or that distorted vertical look
+~~idk how to do cellings, floors, or that distorted vertical look~~
