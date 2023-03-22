@@ -19,7 +19,9 @@ change how far above the ground sprites are (probably have to do something simil
 
 quake/source movement (attempt)
 
-multiple levels, easy way to swap and select levels
+multiple levels, easy way to swap and select levels, load triggers
+
+enemies with ai
 
 distorted vertical look
 
