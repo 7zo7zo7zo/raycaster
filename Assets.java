@@ -42,7 +42,7 @@ public class Assets {
         player = new Player(this, cellSize * 1.5, cellSize * 1.5);
 
         miniMapScale = 10;
-        mapImage = mapImage = getMinimap(map);
+        mapImage = getMinimap(map);
 
         texture = ImageLoader.loadImage("tiled_bricks.jpg");
         lines = new BufferedImage[texture.getWidth()];
