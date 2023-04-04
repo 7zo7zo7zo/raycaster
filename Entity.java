@@ -9,6 +9,10 @@ public class Entity {
 
     protected double angle;
 
+    protected boolean shouldRender;
+
+    protected double distance;
+
     public Entity(Assets assets, double x, double y) {
         this.assets = assets;
         this.x = x;
@@ -16,7 +20,7 @@ public class Entity {
     }
 
     public void tick() {
-
+        distance = Math.hypot(assets.getPlayer().getX() - x, assets.getPlayer().getY() - y);
     }
 
     public void render(Graphics2D g2) {
@@ -33,4 +37,18 @@ public class Entity {
     public double getDist(Entity e) {
         return Math.sqrt(Math.pow(x - e.x, 2) + Math.pow(y - e.y, 2));
     }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public boolean shouldrender() {
+        return shouldRender;
+    }
+
+
 }

@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
@@ -134,6 +135,7 @@ public class Game implements Runnable {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.addKeyListener(input);
+        //frame.addMouseMotionListener(input);
     }
 
     private void setupCanvas() {
@@ -142,6 +144,7 @@ public class Game implements Runnable {
         canvas.setMaximumSize(new Dimension(width, height));
         canvas.setFocusable(false);
         canvas.setBackground(Color.BLACK);
+        canvas.addMouseMotionListener(input);
     }
 
     public Input getInput() {
@@ -154,5 +157,20 @@ public class Game implements Runnable {
 
     public int getHeight() {
         return frame.getHeight();
+    }
+
+    public int getX() {
+        return frame.getX();
+    }
+
+    public int getY() {
+        return frame.getY();
+    }
+
+    public void setCursor(Cursor cursor) {
+        frame.setCursor(cursor);
+    }
+    public Cursor getCursor() {
+        return frame.getCursor();
     }
 }

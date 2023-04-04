@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 public class Player extends Entity {
 
     private double speed;
@@ -7,6 +10,10 @@ public class Player extends Entity {
 
     private boolean moving;
     private byte invertX, invertY;
+    Robot robot;
+
+    private Cursor blankCursor;
+    private Cursor defaultCursor;
 
     public Player(Assets assets, double x, double y) {
         super(assets, x, y);
@@ -14,6 +21,13 @@ public class Player extends Entity {
         speed = 0.2;
         moving = false;
         threshold = 0.5;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
+        blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(new ImageIcon(new byte[0]).getImage(), new Point(0,0), "blank cursor");
+        defaultCursor = Cursor.getDefaultCursor();
     }
 
     public void tick() {
@@ -23,6 +37,25 @@ public class Player extends Entity {
         if(assets.getInput().right) {
             angle += Math.PI / 64;
         }
+
+        int middleX = assets.getScreenWidth() / 2;
+
+        if (assets.getInput().mouseCaptured) {
+            //assets.setCursor(blankCursor);
+            if(assets.getCursor() == defaultCursor) assets.setCursor(blankCursor);
+            if (assets.getInput().mouseX + 1 != middleX) {
+                angle += (assets.getInput().mouseX - middleX) * 0.005;
+                robot.mouseMove(assets.getX() + middleX, (int) (assets.getY() + assets.getScreenHeight() / 2));
+            }
+        }
+        else {
+            //assets.setCursor(blankCursor);
+            if(assets.getCursor() == blankCursor) assets.setCursor(defaultCursor);
+        }
+        //System.out.println(assets.getInput().mouseX);
+        //System.out.println(middleX);
+
+        //angle += assets.getInput().xChange * 0.005;
         while (angle < 0) angle += 2 * Math.PI;
         while (angle > 2 * Math.PI) angle -= 2 * Math.PI;
 
